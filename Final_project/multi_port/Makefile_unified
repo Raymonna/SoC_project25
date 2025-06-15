@@ -1,0 +1,89 @@
+TARGET := hw_emu
+PLATFORM := xilinx_u280_gen3x16_xdma_1_202211_1
+
+# Xilinx tool paths - adjust these to match your environment
+XILINX_VITIS_HLS ?= /tools/Xilinx/Vitis_HLS/2022.2
+XILINX_VIVADO ?= /tools/Xilinx/Vivado/2022.2
+XILINX_XRT ?= /opt/xilinx/xrt
+
+.PHONY: all clean run simple complex compare
+
+all: simple complex
+
+# Simple 2-way implementation
+simple: host_simple spmv_simple.xclbin
+
+# Complex 8-way implementation
+complex: host_complex spmv_complex.xclbin
+
+# HLS synthesis for simple implementation
+spmv_kernel_simple.xo: src/spmv_kernel_simple_fixed_v3.cpp src/spmv_kernel.h script_simple_fixed.tcl
+	vitis_hls -f script_simple_fixed.tcl
+
+# Vitis linking for simple implementation
+spmv_simple.xclbin: spmv_kernel_simple.xo connectivity.cfg
+	v++ -l -t $(TARGET) --platform $(PLATFORM) --config connectivity.cfg spmv_kernel_simple.xo -o $@
+
+# Host compilation for simple implementation
+host_simple: src/host_simple_fixed.cpp src/xcl2.hpp
+	g++ -Wall -O3 -std=c++17 \
+		-I/usr/include \
+		-I$(XILINX_VITIS_HLS)/include \
+		-I$(XILINX_XRT)/include \
+		-I$(XILINX_VIVADO)/include \
+		-I$(XILINX_VIVADO)/include/hls \
+		src/host_simple_fixed.cpp -o $@ \
+		-L$(XILINX_XRT)/lib \
+		-lxrt_coreutil \
+		-lOpenCL \
+		-pthread
+
+# HLS synthesis for complex implementation
+spmv_kernel_complex.xo: src/spmv_kernel_complex_full.cpp src/spmv_kernel.h script_complex.tcl
+	vitis_hls -f script_complex.tcl
+
+# Vitis linking for complex implementation
+spmv_complex.xclbin: spmv_kernel_complex.xo connectivity_complex.cfg
+	v++ -l -t $(TARGET) --platform $(PLATFORM) --config connectivity_complex.cfg spmv_kernel_complex.xo -o $@
+
+# Host compilation for complex implementation
+host_complex: src/host_complex.cpp src/xcl2.hpp
+	g++ -Wall -O3 -std=c++17 \
+		-I/usr/include \
+		-I$(XILINX_VITIS_HLS)/include \
+		-I$(XILINX_XRT)/include \
+		-I$(XILINX_VIVADO)/include \
+		-I$(XILINX_VIVADO)/include/hls \
+		src/host_complex.cpp -o $@ \
+		-L$(XILINX_XRT)/lib \
+		-lxrt_coreutil \
+		-lOpenCL \
+		-pthread
+
+# Performance comparison
+compare: simple complex
+	./run_performance_comparison.sh
+
+clean:
+	rm -rf spmv_u280_hls* *.xclbin *.xo host_simple host_complex _x .Xil *.zip emconfig.json
+
+run_simple: simple
+	export XCL_EMULATION_MODE=hw_emu
+	export HW_EMU_XOCC_PROFILE=1
+	export XRT_EMULATION_MODE=batch
+	export XILINX_HW_EMU_XCLBIN_TIMEOUT=15
+	export HW_EMU_DISABLE_SIM_MEMCHECK=1
+	export XILINX_XRT_VERBOSE=0
+	emconfigutil --platform $(PLATFORM)
+	./host_simple spmv_simple.xclbin data/medium_matrix.mtx
+
+run_complex: complex
+	export XCL_EMULATION_MODE=hw_emu
+	export HW_EMU_XOCC_PROFILE=1
+	export XRT_EMULATION_MODE=batch
+	export XILINX_HW_EMU_XCLBIN_TIMEOUT=15
+	export HW_EMU_DISABLE_SIM_MEMCHECK=1
+	export XILINX_XRT_VERBOSE=0
+	emconfigutil --platform $(PLATFORM)
+	./host_complex spmv_complex.xclbin data/medium_matrix.mtx
+

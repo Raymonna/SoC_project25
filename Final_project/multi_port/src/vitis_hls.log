@@ -1,0 +1,14 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+  **** SW Build 3670227 on Oct 13 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source /tools/Xilinx/Vitis_HLS/2022.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'chingwen' on host 'chingwen-TRX50-AERO-D' (Linux_x86_64 version 5.8.0-63-generic) on Mon Jun 09 02:04:02 CST 2025
+INFO: [HLS 200-10] On os Ubuntu 20.04.6 LTS
+INFO: [HLS 200-10] In directory '/home/chingwen/Project/aahls/Final/SDSoC-Benchmarks/SpMV/ramu_test/02_complex/standalone_fix/src'
+ERROR [AP-1] Could not read script 'script_clean.tcl'.
+INFO: [HLS 200-112] Total CPU user time: 0.36 seconds. Total CPU system time: 0.06 seconds. Total elapsed time: 0.33 seconds; peak allocated memory: 98.910 MB.
+INFO: [Common 17-206] Exiting vitis_hls at Mon Jun  9 02:04:02 2025...
