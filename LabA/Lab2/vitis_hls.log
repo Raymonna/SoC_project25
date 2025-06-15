@@ -1,0 +1,68 @@
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'chenchingwen' on host 'ubuntu' (Linux_x86_64 version 5.15.0-135-generic) on Wed Apr 09 17:41:40 PST 2025
+INFO: [HLS 200-10] On os Ubuntu 22.04.5 LTS
+INFO: [HLS 200-10] In directory '/home/chenchingwen/Course2025/SoC/labA/RTL_Verification/lab2'
+Sourcing Tcl script '/home/chenchingwen/Course2025/SoC/labA/RTL_Verification/lab2/duc_prj/solution1/csynth.tcl'
+INFO: [HLS 200-1510] Running: source /home/chenchingwen/Course2025/SoC/labA/RTL_Verification/lab2/duc_prj/solution1/csynth.tcl
+INFO: [HLS 200-1510] Running: open_project duc_prj 
+INFO: [HLS 200-10] Opening project '/home/chenchingwen/Course2025/SoC/labA/RTL_Verification/lab2/duc_prj'.
+INFO: [HLS 200-1510] Running: set_top duc 
+INFO: [HLS 200-1510] Running: add_files duc.c 
+INFO: [HLS 200-10] Adding design file 'duc.c' to the project
+INFO: [HLS 200-1510] Running: add_files srrc.c 
+INFO: [HLS 200-10] Adding design file 'srrc.c' to the project
+INFO: [HLS 200-1510] Running: add_files imf1.c 
+INFO: [HLS 200-10] Adding design file 'imf1.c' to the project
+INFO: [HLS 200-1510] Running: add_files imf2.c 
+INFO: [HLS 200-10] Adding design file 'imf2.c' to the project
+INFO: [HLS 200-1510] Running: add_files imf3.c 
+INFO: [HLS 200-10] Adding design file 'imf3.c' to the project
+INFO: [HLS 200-1510] Running: add_files mixer.c 
+INFO: [HLS 200-10] Adding design file 'mixer.c' to the project
+INFO: [HLS 200-1510] Running: add_files dds.c 
+INFO: [HLS 200-10] Adding design file 'dds.c' to the project
+INFO: [HLS 200-1510] Running: add_files mac.c 
+INFO: [HLS 200-10] Adding design file 'mac.c' to the project
+INFO: [HLS 200-1510] Running: add_files -tb duc_test.c -cflags -Wno-unknown-pragmas -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'duc_test.c' to the project
+INFO: [HLS 200-1510] Running: add_files -tb golden -cflags -Wno-unknown-pragmas -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'golden' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution '/home/chenchingwen/Course2025/SoC/labA/RTL_Verification/lab2/duc_prj/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7k160t-fbg484-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xc7k160t-fbg484-1 
+INFO: [HLS 200-1510] Running: create_clock -period 5 -name default 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_latency 0 
+INFO: [HLS 200-1510] Running: source ./duc_prj/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name duc duc 
+INFO: [HLS 200-1510] Running: csynth_design 
+Running Dispatch Server on port: 38505
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 10.03 seconds; current allocated memory: 750.785 MB.
+INFO: [HLS 200-10] Analyzing design file 'mac.c' ... 
+INFO: [HLS 200-10] Analyzing design file 'dds.c' ... 
+INFO: [HLS 200-10] Analyzing design file 'mixer.c' ... 
+INFO: [HLS 200-10] Analyzing design file 'imf3.c' ... 
+INFO: [HLS 200-10] Analyzing design file 'imf2.c' ... 
+INFO: [HLS 200-10] Analyzing design file 'imf1.c' ... 
+INFO: [HLS 200-10] Analyzing design file 'srrc.c' ... 
+INFO: [HLS 200-10] Analyzing design file 'duc.c' ... 
+ERROR: [HLS 207-5481] unexpected top argument type: type of the parameter 'din_i' in the function 'duc' is C language Arbitrary-precision type  (duc.c:6:15)
+ERROR: [HLS 207-5481] unexpected top argument type: type of the parameter 'dout_i' in the function 'duc' is C language Arbitrary-precision type  (duc.c:8:15)
+ERROR: [HLS 207-5481] unexpected top argument type: type of the parameter 'dout_q' in the function 'duc' is C language Arbitrary-precision type  (duc.c:9:15)
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 2.54 seconds. CPU system time: 2.4 seconds. Elapsed time: 5.02 seconds; current allocated memory: 0.328 MB.
+Compilation of the preprocessed source 'duc' failed
+    while executing
+"source /home/chenchingwen/Course2025/SoC/labA/RTL_Verification/lab2/duc_prj/solution1/csynth.tcl"
+    invoked from within
+"hls::main /home/chenchingwen/Course2025/SoC/labA/RTL_Verification/lab2/duc_prj/solution1/csynth.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel 1 hls::main {*}$newargs"
+    (procedure "hls_proc" line 16)
+    invoked from within
+"hls_proc [info nameofexecutable] $argv"
+INFO: [HLS 200-112] Total CPU user time: 5.27 seconds. Total CPU system time: 2.79 seconds. Total elapsed time: 17.98 seconds; peak allocated memory: 751.113 MB.
