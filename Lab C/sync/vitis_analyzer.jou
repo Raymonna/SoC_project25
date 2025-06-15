@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vitis Analyzer v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# 
+# Start of session at: Wed May 21 16:50:30 2025
+# Process ID: 429950
+# Current directory: /home/chingwen/Project/aahls/Vitis-Tutorials/Hardware_Acceleration/Design_Tutorials/07-host-code-opt/reference-files/sync
+# Command line: vitis_analyzer xrt.run_summary
+# Log file: /home/chingwen/Project/aahls/Vitis-Tutorials/Hardware_Acceleration/Design_Tutorials/07-host-code-opt/reference-files/sync/vitis_analyzer.log
+# Journal file: /home/chingwen/Project/aahls/Vitis-Tutorials/Hardware_Acceleration/Design_Tutorials/07-host-code-opt/reference-files/sync/vitis_analyzer.jou
+# Running On: chingwen-TRX50-AERO-D, OS: Linux, CPU Frequency: 1496.295 MHz, CPU Physical cores: 32, Host memory: 66836 MB
+#-----------------------------------------------------------
+start_gui
+create_project dummy

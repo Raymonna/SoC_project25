@@ -1,0 +1,4 @@
+INFO: [HW-EMU 01] Hardware emulation runs simulation underneath. Using a large data set will result in long simulation times. It is recommended that a small dataset is used for faster execution. The flow uses approximate models for Global memories and interconnect and hence the performance data generated is approximate.
+INFO: [HW-EMU 06-0] Waiting for the simulator process to exit
+INFO: [HW-EMU 06-1] All the simulator processes exited successfully
+INFO: [HW-EMU 07-0] Please refer the path "/home/chingwen/Project/aahls/Vitis-Tutorials/Hardware_Acceleration/Design_Tutorials/07-host-code-opt/reference-files/sync/.run/429546/hw_em/device0/binary_0/behav_waveform/xsim/simulate.log" for more detailed simulation infos, errors and warnings.

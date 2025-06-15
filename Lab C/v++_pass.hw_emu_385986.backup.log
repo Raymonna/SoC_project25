@@ -1,0 +1,12 @@
+INFO: [v++ 60-1306] Additional information associated with this v++ compile can be found at:
+	Reports: /home/chingwen/Project/aahls/Vitis-Tutorials/Hardware_Acceleration/Design_Tutorials/07-host-code-opt/reference-files/_x/reports/pass.hw_emu
+	Log files: /home/chingwen/Project/aahls/Vitis-Tutorials/Hardware_Acceleration/Design_Tutorials/07-host-code-opt/reference-files/_x/logs/pass.hw_emu
+INFO: [v++ 60-1548] Creating build summary session with primary output /home/chingwen/Project/aahls/Vitis-Tutorials/Hardware_Acceleration/Design_Tutorials/07-host-code-opt/reference-files/xclbin/pass.hw_emu.xo.compile_summary, at Wed May 21 09:50:20 2025
+INFO: [v++ 60-1315] Creating rulecheck session with output '/home/chingwen/Project/aahls/Vitis-Tutorials/Hardware_Acceleration/Design_Tutorials/07-host-code-opt/reference-files/_x/reports/pass.hw_emu/v++_compile_pass.hw_emu_guidance.html', at Wed May 21 09:50:20 2025
+ERROR: [v++ 60-1258] No valid platform was found that matches 'xilinx_u280_gen3x16_xdma_1_202211_1'. Please make sure that the platform is specified correctly, and the platform has the right version number. The platform repo paths are:
+	/tools/Xilinx/Vitis/2022.2/platforms
+The valid platforms found from the above repo paths are:
+
+ERROR: [v++ 60-587] Failed to add a platform: specified platform xilinx_u280_gen3x16_xdma_1_202211_1 is not found or is not valid
+ERROR: [v++ 60-592] Failed to finish compilation
+INFO: [v++ 60-1653] Closing dispatch client.
