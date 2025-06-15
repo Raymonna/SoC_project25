@@ -1,0 +1,16 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Wed Apr  9 14:06:00 2025
+# Process ID: 748302
+# Current directory: /home/chenchingwen/Course2025/SoC/labA/RTL_Verification/lab1
+# Command line: vivado -mode batch -source run_hls.tcl
+# Log file: /home/chenchingwen/Course2025/SoC/labA/RTL_Verification/lab1/vivado.log
+# Journal file: /home/chenchingwen/Course2025/SoC/labA/RTL_Verification/lab1/vivado.jou
+# Running On: ubuntu, OS: Linux, CPU Frequency: 2700.000 MHz, CPU Physical cores: 14, Host memory: 16440 MB
+#-----------------------------------------------------------
+source run_hls.tcl
+# open_project	-reset duc_prj
+ERROR: [Common 17-170] Unknown option '-reset', please type 'open_project -help' for usage info.
+INFO: [Common 17-206] Exiting Vivado at Wed Apr  9 14:06:05 2025...
